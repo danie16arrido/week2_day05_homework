@@ -38,8 +38,13 @@ class TestGuest < MiniTest::Test
     assert_equal(1, @guest.group_id)
   end
 
-  def test_user_has_a_bill_when_cheked_in
+  def test_guest_has_a_bill_when_cheked_in
     assert_equal(0, @guest.bill)
+  end
+
+  def test_can_add_to_guest_bill
+    @guest1.charge_for(30)
+    assert_equal(30, @guest1.bill)
   end
 
 end

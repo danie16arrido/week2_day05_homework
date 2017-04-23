@@ -21,4 +21,8 @@ class Guest
    @group_id = id
  end 
 
+ def charge_for(item)
+  @bill += item
+ end
+
 end
