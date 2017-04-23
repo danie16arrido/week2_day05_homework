@@ -23,6 +23,7 @@ class Karaoke
   def check_in_group(a_group, group_id, a_room)
    a_group.each do |guest|
      a_room.check_in_guest(guest)
+     guest.is_in_a_group = true
    end
   end
 

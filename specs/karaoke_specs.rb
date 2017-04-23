@@ -61,4 +61,25 @@ class TestKaraoke < MiniTest::Test
     assert_equal(3, @room1.guests_in_room.count())
   end
 
+  def test_guest_is_a_group
+    @karaoke1.check_in_group(@group1, 1, @room1)
+    assert_equal(true, @guest3.is_in_a_group) 
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end
