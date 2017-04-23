@@ -20,4 +20,8 @@ class TestRoom < MiniTest::Test
     assert_equal([], @room1.guests_in_room)
   end
 
+  def test_room_has_a_playlist
+    assert_equal([], @room1.playlist)
+  end
+
 end
