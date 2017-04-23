@@ -1,13 +1,14 @@
 class Guest
   
   attr_reader :name
-  attr_accessor :is_in_a_group, :group_id, :bill
+  attr_accessor :is_in_a_group, :group_id, :bill, :favourite_song
 
   def initialize(a_name)
     @name = a_name
     @is_in_a_group = false
     @group_id = 0
     @bill = 0
+    @favourite_song = "" 
   end
 
  def set_guest_group

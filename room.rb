@@ -20,10 +20,21 @@ class Room
 
   def add_song(a_song)
     @playlist << a_song
+    check_reaction(a_song)
   end
 
   def places_available
     return (@capacity - @guests_in_room.count())
+  end
+
+  def check_reaction(a_song)
+    reaction = ""
+    @guests_in_room.each do |guest|
+      if guest.favourite_song == a_song.name
+        reaction = "whoo"
+      end
+    end
+    return reaction
   end
 
 

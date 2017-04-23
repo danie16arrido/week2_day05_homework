@@ -47,4 +47,18 @@ class TestGuest < MiniTest::Test
     assert_equal(30, @guest1.bill)
   end
 
+  def test_fav_song
+    @guest1.favourite_song = "Seek and Destroy"
+    assert_equal("Seek and Destroy", @guest1.favourite_song)
+  end
+
+
+
+
+
+
+
+
+
+
 end

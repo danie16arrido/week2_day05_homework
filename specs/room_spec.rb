@@ -2,12 +2,14 @@ require('minitest/autorun')
 require('minitest/emoji')
 require_relative("../room.rb")
 require_relative("../guest.rb")
+require_relative("../song.rb")
 
 class TestRoom < MiniTest::Test
 
   def setup
     @room1 = Room.new("Folk", 9)
     @guest1 = Guest.new("JD")
+    @song1 = Song.new("Seek and Destroy", "Metallica", 170, :trash_metal, 5)
   end
 
   def test_can_create_room
@@ -55,6 +57,13 @@ class TestRoom < MiniTest::Test
   def test_can_set_entry_fee
     @room1.entry_fee = 30
     assert_equal(30, @room1.entry_fee)
+  end
+
+  def test_whoos_when_adding_song_to_playlist
+    @room1.check_in_guest(@guest1)
+    @guest1.favourite_song = "Seek and Destroy"
+    song_to_playlist = @room1.add_song(@song1) 
+    assert_equal("whoo", song_to_playlist)
   end
 
 
