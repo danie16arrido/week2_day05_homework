@@ -5,7 +5,7 @@ require_relative("../song.rb")
 class TestSong < MiniTest::Test
 
   def setup
-    @song1 = Song.new("Paranoid", "Black Sabbath", 170, "Heavy Metal")
+    @song1 = Song.new("Paranoid", "Black Sabbath", 170, "Heavy Metal", 5)
   end
 
   def test_can_create_song_class
@@ -26,6 +26,10 @@ class TestSong < MiniTest::Test
 
   def test_can_get_category
     assert_equal("Heavy Metal", @song1.category)
+  end
+  
+  def test_can_get_popularity
+    assert_equal(5, @song1.popularity)
   end
 
 
