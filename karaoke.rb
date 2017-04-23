@@ -20,4 +20,10 @@ class Karaoke
     @items_to_sell.delete(item)
   end
 
+  def check_in_group(a_group, group_id, a_room)
+   a_group.each do |guest|
+     a_room.check_in_guest(guest)
+   end
+  end
+
 end

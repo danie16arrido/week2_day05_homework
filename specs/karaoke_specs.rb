@@ -2,12 +2,19 @@ require('minitest/autorun')
 require('minitest/emoji')
 require_relative("../karaoke.rb")
 require_relative("../room.rb")
+require_relative("../guest.rb")
 
 class TestKaraoke < MiniTest::Test
 
   def setup
     @karaoke1 = Karaoke.new
+
     @room1 = Room.new("Heavy Metal", 666)
+    
+    @guest1 = Guest.new("Daniel")
+    @guest2 = Guest.new("Peter")
+    @guest3 = Guest.new("Ben")
+    @group1 = [@guest1, @guest2, @guest3]
   end
 
   def test_can_create_karaoke
@@ -48,4 +55,10 @@ class TestKaraoke < MiniTest::Test
     @karaoke1.delete_item_to_sell(:beer)
     assert_nil(@karaoke1.items_to_sell[:beer])
   end
+
+  def test_can_checkin_group
+    @karaoke1.check_in_group(@group1, 1, @room1)
+    assert_equal(3, @room1.guests_in_room.count())
+  end
+
 end
