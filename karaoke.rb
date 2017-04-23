@@ -12,6 +12,12 @@ class Karaoke
     @rooms << a_room
   end
 
+  def add_song_global(song)
+    if !(@global_playlist.include?(song))
+      @global_playlist << song
+    end
+  end
+
   def add_items_to_sell(item)
     @items_to_sell.merge!(item)
   end

@@ -3,6 +3,7 @@ require('minitest/emoji')
 require_relative("../karaoke.rb")
 require_relative("../room.rb")
 require_relative("../guest.rb")
+require_relative("../song.rb")
 
 class TestKaraoke < MiniTest::Test
 
@@ -127,6 +128,12 @@ class TestKaraoke < MiniTest::Test
 
     @guest2.pretty_bill
 
+  end
+
+  def test_can_add_song_to_global
+    @song1 = Song.new("Paranoid", "Black Sabbath", 170, "Heavy Metal", 5)
+    @karaoke1.add_song_global(@song1)
+    assert_equal(1, @karaoke1.global_playlist.count())
   end
 
 
