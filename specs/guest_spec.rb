@@ -52,6 +52,8 @@ class TestGuest < MiniTest::Test
     assert_equal("Seek and Destroy", @guest1.favourite_song)
   end
 
+ 
+
 
 
 

@@ -85,12 +85,31 @@ class TestKaraoke < MiniTest::Test
     @karaoke1.add_room(@room1)
     @room1.entry_fee = 30
     @room1.check_in_guest(@guest2)
-    a_beer = @karaoke1.items_to_sell[:beer]
+    # a_beer = @karaoke1.items_to_sell[:beer]
+    a_beer = @karaoke1.items_to_sell.assoc(:beer)
     @guest2.charge_for(a_beer)
     assert_equal(35.2, @guest2.bill) 
-
   end
 
+  def test_add_detail_when_buying_item
+    joker_ipa = {beer: 5.2}
+    list = {peanuts: 4.0, whiskey: 7.9}
+    @karaoke1.add_items_to_sell(joker_ipa)
+    @karaoke1.add_items_to_sell(list)
+    @karaoke1.add_room(@room1)
+    @room1.entry_fee = 30
+    @room1.check_in_guest(@guest2)
+    a_beer = @karaoke1.items_to_sell.assoc(:beer)
+    a_snack = @karaoke1.items_to_sell.assoc(:whiskey)
+    a_shot= @karaoke1.items_to_sell.assoc(:peanuts)
+    @guest2.charge_for(a_beer)
+    @guest2.charge_for(a_snack)
+    @guest2.charge_for(a_shot)
+    @guest2.charge_for(a_beer)
+    assert_equal(["beer", "whiskey", "peanuts", "beer"], @guest2.items_consumed) 
+  end
+
+  
 
 
 
