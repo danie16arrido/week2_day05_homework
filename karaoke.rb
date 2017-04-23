@@ -12,4 +12,8 @@ class Karaoke
     @rooms << a_room
   end
 
+  def add_items_to_sell(item)
+    @items_to_sell.merge!(item)
+  end
+
 end
