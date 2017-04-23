@@ -1,8 +1,8 @@
 class Guest
   
-  attr_reader :name, :bill
-  attr_accessor :is_in_a_group, :group_id
-  
+  attr_reader :name
+  attr_accessor :is_in_a_group, :group_id, :bill
+
   def initialize(a_name)
     @name = a_name
     @is_in_a_group = false

@@ -11,6 +11,7 @@ class Room
 
   def check_in_guest(a_guest)
     @guests_in_room << a_guest
+    a_guest.bill += @entry_fee
   end
 
   def check_out_guest(a_guest)
