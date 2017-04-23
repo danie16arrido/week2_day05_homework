@@ -27,5 +27,7 @@ class TestKaraoke < MiniTest::Test
     assert_equal([], @karaoke1.global_playlist)
   end
 
-
+  def test_can_store_items_to_sell
+    assert_equal({}, @karaoke1.items_to_sell)
+  end
 end
