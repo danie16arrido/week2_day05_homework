@@ -16,4 +16,8 @@ class Karaoke
     @items_to_sell.merge!(item)
   end
 
+  def delete_item_to_sell(item)
+    @items_to_sell.delete(item)
+  end
+
 end

@@ -39,4 +39,13 @@ class TestKaraoke < MiniTest::Test
     assert_equal(5.2, @karaoke1.items_to_sell[:beer])
     assert_equal(7.9, @karaoke1.items_to_sell[:whiskey])
   end
+
+  def test_can_remove_items_after_running_out
+    joker_ipa = {beer: 5.2}
+    list = {peanuts: 4.0, whiskey: 7.9}
+    @karaoke1.add_items_to_sell(joker_ipa)
+    @karaoke1.add_items_to_sell(list)
+    @karaoke1.delete_item_to_sell(:beer)
+    assert_nil(@karaoke1.items_to_sell[:beer])
+  end
 end
