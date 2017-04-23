@@ -45,4 +45,9 @@ class TestRoom < MiniTest::Test
     assert_equal(1, @room1.playlist.count())
   end
 
+  def test_places_available_in_room
+    @room1.check_in_guest("me")
+    assert_equal(8, @room1.places_available)
+  end
+
 end

@@ -20,6 +20,10 @@ class Room
     @playlist << a_song
   end
 
+  def places_available
+    return (@capacity - @guests_in_room.count())
+  end
+
 
 
 
