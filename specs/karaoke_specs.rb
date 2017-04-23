@@ -72,6 +72,13 @@ class TestKaraoke < MiniTest::Test
     assert_equal(1, @guest1.group_id)
   end
 
+  def test_can_charge_guest_an_entry_fee
+    @karaoke1.add_room(@room1)
+    @room1.entry_fee = 30
+    @karaoke1.check_in_group(@group1, 1, @room1)
+    assert_equal(30, @guest1.bill)
+  end
+
 
 
 
