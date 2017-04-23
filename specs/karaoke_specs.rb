@@ -66,6 +66,13 @@ class TestKaraoke < MiniTest::Test
     assert_equal(true, @guest3.is_in_a_group) 
   end
 
+  def test_guest_has_id_group_when_checking_in_a_group
+    @karaoke1.check_in_group(@group1, 1, @room1)
+    assert_equal(1, @guest2.group_id)
+    assert_equal(1, @guest1.group_id)
+  end
+
+
 
 
 
