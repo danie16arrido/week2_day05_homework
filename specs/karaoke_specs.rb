@@ -79,6 +79,18 @@ class TestKaraoke < MiniTest::Test
     assert_equal(30, @guest1.bill)
   end
 
+  def test_can_charge_guest_for_preloaded_item
+    joker_ipa = {beer: 5.2}
+    @karaoke1.add_items_to_sell(joker_ipa)
+    @karaoke1.add_room(@room1)
+    @room1.entry_fee = 30
+    @room1.check_in_guest(@guest2)
+    a_beer = @karaoke1.items_to_sell[:beer]
+    @guest2.charge_for(a_beer)
+    assert_equal(35.2, @guest2.bill) 
+
+  end
+
 
 
 
