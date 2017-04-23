@@ -7,4 +7,17 @@ class Room
     @playlist = []
     @capacity = capacity
   end
+
+  def check_in_guest(a_guest)
+    @guests_in_room << a_guest
+  end
+
+
+
+
+
+
+
+
 end
+
