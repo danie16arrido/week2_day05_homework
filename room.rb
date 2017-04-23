@@ -12,6 +12,10 @@ class Room
     @guests_in_room << a_guest
   end
 
+  def check_out_guest(a_guest)
+    @guests_in_room.delete(a_guest)
+  end
+
 
 
 
