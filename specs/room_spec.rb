@@ -1,11 +1,13 @@
 require('minitest/autorun')
 require('minitest/emoji')
 require_relative("../room.rb")
+require_relative("../guest.rb")
 
 class TestRoom < MiniTest::Test
 
   def setup
     @room1 = Room.new("Folk", 9)
+    @guest1 = Guest.new("JD")
   end
 
   def test_can_create_room
@@ -29,14 +31,14 @@ class TestRoom < MiniTest::Test
   end
 
   def test_room_can_chek_in_guest
-    @room1.check_in_guest("Im a guest")
+    @room1.check_in_guest(@guest1)
     assert_equal(1, @room1.guests_in_room.count())
   end
 
   def test_can_check_out_guest
-    @room1.check_in_guest("Im a guest")
+    @room1.check_in_guest(@guest1)
     assert_equal(1, @room1.guests_in_room.count())
-    @room1.check_out_guest("Im a guest")
+    @room1.check_out_guest(@guest1)
     assert_equal(0, @room1.guests_in_room.count())
   end
 
@@ -46,7 +48,7 @@ class TestRoom < MiniTest::Test
   end
 
   def test_places_available_in_room
-    @room1.check_in_guest("me")
+    @room1.check_in_guest(@guest1)
     assert_equal(8, @room1.places_available)
   end
 
