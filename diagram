@@ -1,0 +1,68 @@
+
+++++++++++++++++++++++++++
+Guest
+++++++++++++++++++++++++++
+name: string
+is_in_a_group: bool
+group_id: int
+fav_song: string
+items_consumed: array
+++++++++++++++++++++++++++
+set_guest_in_group()
+unset_guest_in_group()
+add_to_group_id(id)
+charge_for(item)
+pretty_bill()
+
+
+
+++++++++++++++++++++++++++
+Room
+++++++++++++++++++++++++++
+name: string
+guests_in_group: Array
+playlist: Array
+capacity: int
+entry_fee: int
+++++++++++++++++++++++++++
+check_in_guest(guest)
+check_out_guest(guest)
+add_song(song)
+check_places_available()
+check_reaction()
+
+
+++++++++++++++++++++++++++
+Song
+++++++++++++++++++++++++++
+name: string
+artist: string
+duration: int
+category: sym
+popularity: int
+++++++++++++++++++++++++++
+
+
+++++++++++++++++++++++++++
+Karaoke
+++++++++++++++++++++++++++
+rooms: Array
+global_playlist: Array
+items_to_sell: Hash
+++++++++++++++++++++++++++
+add_room(room)
+add_to_global_playlist(song)
+add_items_to_sell(items)
+delete_items_to_sell(item)
+check_in_a_group(group)
+
+
+
+
+++++++++++++++++++++++++++
+Menu
+++++++++++++++++++++++++++
+name: string
+message: string
+++++++++++++++++++++++++++
+

@@ -1,4 +1,4 @@
-require('minitest/autorun')
+
 require('minitest/emoji')
 require_relative("../menu.rb")
 
