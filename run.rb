@@ -61,6 +61,15 @@ submenu2 = [
 @manager_menu.add_item(submenu2)
 @manager_menu.message = "Manager Menu"
 
+@bar_menu = Menu.new("Bar Menu")
+submenu11 = []
+available_today.each do |k, v|
+  submenu11 << k.to_s
+end
+@bar_menu.add_item(submenu11)
+@bar_menu.add_item("Quit")
+@bar_menu.message = "Bar Menu"
+
 def get_the_party_started(a_karoke)
   @main_menu.pretty_print
   input = gets.chomp()
@@ -71,6 +80,18 @@ def get_the_party_started(a_karoke)
       while input != @guest_menu.items.length.to_s 
         if input == '1'
           puts "am 1"
+          @bar_menu.message = "What would you like to buy?"
+          @bar_menu.pretty_print
+          input = gets.chomp()
+          while input != @bar_menu.items.length.to_s
+            if input == '1'
+              puts "I am buyin a beer"
+            else
+              puts ">>>> wrong option"
+            end
+            @bar_menu.pretty_print
+            input = gets.chomp() 
+          end
         elsif input == '2'
           puts "am 2"
         elsif input == '3'
@@ -110,4 +131,5 @@ def get_the_party_started(a_karoke)
 end
 
 get_the_party_started(@karoke)
+
 
